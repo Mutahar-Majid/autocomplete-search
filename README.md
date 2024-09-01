@@ -1,6 +1,21 @@
-# Getting Started with Create React App
+# Autocomplete search component - [Live Link](https://autocomplete-search-eight.vercel.app/)
+ - It allows the user to search for books using keywords found in their summaries. For example: If we searched for the word “history”. We get the id 24(2 occurrence and 44(one occurance). In this case the search should show the title of id 24 as the first item of the list and title of id 44 as the second item of the list
+ - Once the user clicks on a suggestion list item and submit, it adds a card with book title,summary, author. The form data only resets on clearing search using backspace or close button. As such, multiple items can be added with a single search.
+ - There are a maximum of four cards per row. It has a zoom in effect on hover
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Testing
+ - Integration test suite for autocompleteSearch Component
+ - Unite tests for each of its components - SearchInput, SuggestionsList & ResultsGrid
+
+## Optimizations
+ - **Reducing Network Resources**: Uses a LRU cache to memoize results of upto 5 queries to prevent unecessary api calls when data is fetched from backend for furture cases.
+ - **Reliability**: Uses a custom hook to handle Loading, Error and Success use cases of api response
+ - **Performance**: Uses virtualized List using 'react-window' package to render upto 5 results visible in the viewport. The remaining can be accessed via scroll.
+ - **Scalibility**: Uses pagination to limit the total number of book cards that can be added to a screen to 8 per page.
+
+## Additions:
+ - For better UX, limits the length of summary to be shown in a card. To view the entire summary, user can click on view more button to display the entire summary in a modal.
+ - For better accessiblity, uses aria-labels and alt img text among other things.
 
 ## Available Scripts
 
@@ -17,54 +32,8 @@ You may also see any lint errors in the console.
 ### `npm test`
 
 Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
