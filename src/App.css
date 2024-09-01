@@ -1,0 +1,19 @@
+.main-container .header-title{
+  font-size: 2rem;
+  font-weight: 600;
+  width: max-content;
+  padding-inline: 0.5rem;
+  background-color: gray;
+  color: white;
+  margin: 1rem auto 0.25rem;
+  border-radius: 4px;
+}
+.main-container .header-subtitle{
+  font-size: 1rem;
+  margin: 0rem auto 1rem;
+  text-align: center;
+  color: gray;
+  border-bottom: 1px lightgray solid;
+  padding: 0.5rem;
+  width: 45%;
+}
